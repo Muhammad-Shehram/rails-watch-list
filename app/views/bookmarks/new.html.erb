@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="form-container">
+    <h1 class="mb-2">Add a Movie</h1>
+    <p class="text-muted mb-4">Adding to: <strong><%= @list.name %></strong></p>
+
+    <%= simple_form_for([@list, @bookmark]) do |f| %>
+      <%= f.error_notification %>
+
+      <div class="form-inputs">
+        <%# This association creates the dropdown list of movies %>
+        <%= f.association :movie,
+                          prompt: "Select a movie from the database",
+                          input_html: { class: 'form-select' } %>
+
+        <%= f.input :comment,
+                    placeholder: "Why are you adding this movie? (min. 6 chars)",
+                    label: "Your thoughts" %>
+      </div>
+
+      <div class="form-actions mt-4">
+        <%= f.button :submit, "Add to List", class: "btn-cinema w-100" %>
+      </div>
+    <% end %>
+
+    <div class="mt-4 text-center">
+      <%= link_to "Cancel and return to list", list_path(@list), class: "text-muted" %>
+    </div>
+  </div>
+</div>

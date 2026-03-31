@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="form-container">
+    <h1 class="mb-4">Create a New List</h1>
+
+    <%= simple_form_for(@list) do |f| %>
+      <%= f.error_notification %>
+
+      <div class="form-inputs">
+        <%= f.input :name,
+                    placeholder: "e.g. 80s Horror, Best Dramas...",
+                    label: "What's the name of your new collection?" %>
+      </div>
+
+      <div class="form-actions mt-4">
+        <%= f.button :submit, "Create List", class: "btn-cinema w-100" %>
+      </div>
+    <% end %>
+
+    <div class="mt-4 text-center">
+      <%= link_to "← Back to all lists", lists_path, class: "text-muted" %>
+    </div>
+  </div>
+</div>

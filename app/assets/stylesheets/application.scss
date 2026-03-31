@@ -10,3 +10,152 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+
+// Variables
+$primary: #E63946;    // Cinema Red
+$dark-bg: #141414;   // Netflix Dark
+$card-bg: #ffffff;
+$text-main: #333333;
+$gold: #FFB703;      // Star/Rating Gold
+
+// Global Styles
+body {
+  background-color: #f8f9fa;
+  font-family: 'Inter', sans-serif;
+  color: $text-main;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+// Banner Component
+.banner {
+  background-size: cover;
+  background-position: center;
+  padding: 100px 0;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+  border-radius: 12px;
+  margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-blend-mode: multiply;
+  background-color: rgba(0,0,0,0.4);
+}
+
+// List Cards (Index Page)
+.list-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.list-card {
+  background: $card-bg;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  text-align: center;
+  transition: transform 0.2s ease;
+  text-decoration: none;
+  color: inherit;
+  border: 1px solid #eee;
+
+  &:hover {
+    transform: translateY(-5px);
+    border-color: $primary;
+    color: $primary;
+  }
+
+  h2 { margin: 0; font-weight: 700; }
+}
+
+// Movie Cards (Show Page)
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.movie-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  position: relative;
+
+  img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+  }
+
+  .movie-content {
+    padding: 20px;
+
+    h3 { margin-top: 0; font-size: 1.2rem; }
+    .rating { color: $gold; font-weight: bold; margin-bottom: 10px; }
+    .comment {
+      font-style: italic;
+      color: #666;
+      border-left: 3px solid $primary;
+      padding-left: 10px;
+    }
+  }
+
+  .delete-link {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(255,255,255,0.8);
+    padding: 5px 10px;
+    border-radius: 50px;
+    color: $primary;
+    font-size: 0.8rem;
+    text-decoration: none;
+    &:hover { background: $primary; color: white; }
+  }
+}
+
+// Form Styling
+.form-container {
+  background: white;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  max-width: 500px;
+  margin: 50px auto;
+}
+
+.btn-cinema {
+  background-color: $primary !important; // Ensures the red stays
+  color: white !important;           // Ensures text stays visible
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  display: inline-block;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+
+  &:hover {
+    // This darkens your 'Cinema Red' by 10% when you hover
+    background-color: darken($primary, 10%) !important;
+    color: white !important;
+    transform: translateY(-2px); // Subtle 'lift' effect
+    box-shadow: 0 4px 12px rgba(230, 57, 70, 0.3); // Glow effect
+    text-decoration: none;
+  }
+
+  &:active {
+    transform: translateY(0); // Pushes down when clicked
+  }
+}
