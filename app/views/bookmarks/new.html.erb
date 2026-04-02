@@ -22,8 +22,9 @@
       </div>
     <% end %>
 
-    <div class="mt-4 text-center">
-      <%= link_to "Cancel and return to list", list_path(@list), class: "text-muted" %>
-    </div>
+  <div class="mt-5 mb-5 text-center">
+    <%= link_to lists_path, class: "btn-back-cinema" do %>
+      <i class="fa-solid fa-arrow-left-long me-2"></i> Back to all lists
+    <% end %>
   </div>
 </div>

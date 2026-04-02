@@ -33,94 +33,86 @@ body {
 }
 
 // Banner Component
+// The Banner
 .banner {
   background-size: cover;
   background-position: center;
-  padding: 100px 0;
-  color: white;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
-  border-radius: 12px;
-  margin-bottom: 40px;
+  height: 400px; // Gives the box height so the image is visible
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
-  background-blend-mode: multiply;
-  background-color: rgba(0,0,0,0.4);
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+  h1 { font-size: 4rem; font-weight: 800; }
 }
 
 // List Cards (Index Page)
-.list-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 20px;
-}
+// .list-grid {
+//   display: grid;
+//   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+//   gap: 20px;
+// }
 
-.list-card {
-  background: $card-bg;
-  padding: 30px;
-  border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-  text-align: center;
-  transition: transform 0.2s ease;
-  text-decoration: none;
-  color: inherit;
-  border: 1px solid #eee;
+// .list-card {
+//   background: $card-bg;
+//   padding: 30px;
+//   border-radius: 16px;
+//   box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+//   text-align: center;
+//   transition: transform 0.2s ease;
+//   text-decoration: none;
+//   color: inherit;
+//   border: 1px solid #eee;
 
-  &:hover {
-    transform: translateY(-5px);
-    border-color: $primary;
-    color: $primary;
-  }
+//   &:hover {
+//     transform: translateY(-5px);
+//     border-color: $primary;
+//     color: $primary;
+//   }
 
-  h2 { margin: 0; font-weight: 700; }
-}
+//   h2 { margin: 0; font-weight: 700; }
+// }
 
 // Movie Cards (Show Page)
 .movie-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 30px;
+  gap: 25px;
 }
 
+// The Movie Card
 .movie-card {
   background: white;
   border-radius: 12px;
+  position: relative; // Needed for the floating delete link
   overflow: hidden;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-  position: relative;
 
-  img {
-    width: 100%;
-    height: 400px;
-    object-fit: cover;
-  }
+  img { width: 100%; height: 400px; object-fit: cover; }
 
-  .movie-content {
-    padding: 20px;
+  .movie-content { padding: 20px; }
 
-    h3 { margin-top: 0; font-size: 1.2rem; }
-    .rating { color: $gold; font-weight: bold; margin-bottom: 10px; }
-    .comment {
-      font-style: italic;
-      color: #666;
-      border-left: 3px solid $primary;
-      padding-left: 10px;
-    }
-  }
-
+  // The Floating "remove" text
   .delete-link {
     position: absolute;
-    top: 10px;
-    right: 10px;
-    background: rgba(255,255,255,0.8);
-    padding: 5px 10px;
-    border-radius: 50px;
-    color: $primary;
+    top: 15px;
+    right: 15px;
+    color: #E63946;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 4px 12px;
+    border-radius: 20px;
     font-size: 0.8rem;
     text-decoration: none;
-    &:hover { background: $primary; color: white; }
+    font-weight: 600;
+    &:hover { background: #E63946; color: white; }
   }
+}
+
+// The Red-Border Comment (Blockquote style)
+.comment-block {
+  border-left: 3px solid #E63946; // The red bar
+  padding-left: 15px;
+  font-style: italic;
+  color: #444;
 }
 
 // Form Styling
@@ -158,4 +150,98 @@ body {
   &:active {
     transform: translateY(0); // Pushes down when clicked
   }
+}
+
+
+
+
+// 🎬 CINEMA BACK BUTTON
+.btn-back-cinema {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 20px;
+  color: #6c757d;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid #dee2e6;
+  border-radius: 50px; // Rounded pill shape
+  transition: all 0.3s ease;
+  background-color: white;
+
+  &:hover {
+    color: #E63946; // Changes to your signature red
+    border-color: #E63946;
+    background-color: #fff1f2;
+    transform: translateX(-5px); // Subtle slide left on hover
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  }
+}
+
+
+
+// for index page
+// .card-list {
+//   transition: all 0.3s ease; // Smooth transition for the hover effect
+//   border: 2px solid transparent; // Set a base border so it doesn't "jump" on hover
+//   cursor: pointer;
+
+//   &:hover {
+//     border-color: #E63946 !important; // Changes border to red on hover
+//     transform: translateY(-5px); // Slightly lifts the card up
+//     box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+
+//     .card-title {
+//       color: #E63946 !important; // Optional: turns text red too
+//     }
+//   }
+
+//   .card-img-top {
+//     transition: transform 0.5s ease;
+//   }
+
+//   &:hover .card-img-top {
+//     transform: scale(1.05); // Subtle zoom effect on the image
+//   }
+// }
+
+// // Ensure the link doesn't have default blue styling
+// .text-decoration-none {
+//   text-decoration: none !important;
+// }
+
+// 🍿 LIST CARD INTERACTION
+.card-list {
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 2px solid transparent; // Base border
+  background: white;
+
+  .card-img-wrapper {
+    overflow: hidden;
+    .card-img-top {
+      transition: transform 0.5s ease;
+      object-fit: cover;
+    }
+  }
+
+  // THE RED HOVER EFFECT
+  &:hover {
+    border-color: #E63946 !important; // Red border from your screenshot
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1) !important;
+
+    .card-img-top {
+      transform: scale(1.1); // Image zooms in slightly
+    }
+
+    .card-title {
+      color: #E63946 !important;
+    }
+  }
+}
+
+.cinema-title {
+  letter-spacing: -1px;
+  color: #1d3557;
 }

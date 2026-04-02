@@ -22,7 +22,10 @@ class ListsController < ApplicationController
 
   private
 
+private
+
   def list_params
-    params.require(:list).permit(:name)
+    # Add :photo to the permitted list here!
+    params.require(:list).permit(:name, :photo)
   end
 end

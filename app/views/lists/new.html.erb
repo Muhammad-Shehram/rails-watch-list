@@ -6,9 +6,16 @@
       <%= f.error_notification %>
 
       <div class="form-inputs">
+        <%# 1. Existing Name Input %>
         <%= f.input :name,
                     placeholder: "e.g. 80s Horror, Best Dramas...",
                     label: "What's the name of your new collection?" %>
+
+        <%# 2. NEW Photo Input - Add it here! %>
+        <%= f.input :photo,
+                    as: :file,
+                    label: "Upload a cover image for this list",
+                    input_html: { class: 'form-control' } %>
       </div>
 
       <div class="form-actions mt-4">
@@ -16,8 +23,9 @@
       </div>
     <% end %>
 
-    <div class="mt-4 text-center">
-      <%= link_to "← Back to all lists", lists_path, class: "text-muted" %>
-    </div>
+  <div class="mt-5 mb-5 text-center">
+    <%= link_to lists_path, class: "btn-back-cinema" do %>
+      <i class="fa-solid fa-arrow-left-long me-2"></i> Back to all lists
+    <% end %>
   </div>
 </div>
