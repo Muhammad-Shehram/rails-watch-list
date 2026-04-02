@@ -84,6 +84,5 @@ test:
 #   username: rails_watch_list
 #   password: <%= ENV["RAILS_WATCH_LIST_DATABASE_PASSWORD"] %>
 production:
-production:
   <<: *default
   url: <%= ENV['DATABASE_URL'] %>
